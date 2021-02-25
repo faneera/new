@@ -1,0 +1,76 @@
+import React, {Component} from 'react';  
+
+/* Import Components */
+import CheckBox from '../components/CheckBox';  
+import Input from '../components/Input';  
+import TextArea from '../components/TextArea';  
+import Select from '../components/Select';
+import Button from '../components/Button'
+
+class FormContainer extends Component {  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      newUser: {
+        name: '',
+        gender: '',
+       
+      },
+
+      genderOptions: ['Male', 'Female', 'Others'],
+ ']
+
+    }
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleClearForm = this.handleClearForm.bind(this);
+  }
+
+   
+
+  handleFormSubmit() {
+
+    
+  }
+  handleClearForm() {
+     
+  }
+  render() {
+    return (
+      <form className="container" onSubmit={this.handleFormSubmit}>
+
+        <Input  type={'text'}
+               title= {'Full Name'} 
+               name= {'name'}
+               value={this.state.newUser.name} 
+               placeholder = {'Enter your name'}
+               handleChange = {this.handleFullName}
+               />
+          
+        <Select title={'Gender'}
+       name={'gender'}
+       options = {this.state.genderOptions} 
+       value = {this.state.newUser.gender}
+       placeholder = {'Select Gender'}
+       handleChange = {this.handleInput}
+/>
+
+<select>
+  <option value="a">A</option>
+  <option value="b">B</option>
+  <option selected value="c">C</option>
+  <option value="d">D</option>
+</select>
+
+         
+        <Button  style= {props.style} 
+            onClick= {props.action}>    
+            {props.title} 
+        <Button /> 
+      </form>
+    );
+  }
+}
+
+export default FormContainer;
+}
